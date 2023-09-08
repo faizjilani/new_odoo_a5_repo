@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <record id="seq_tuba_sale_damage" model="ir.sequence">
+           <field name="name">Tuba Sale Damage</field>
+           <field name="code">tuba.sale.damage</field>
+           <field name="prefix">D</field>
+           <field name="padding">5</field>
+           <field name="company_id" eval="False"/>
+       </record>
+       <record id="seq_tuba_sale_order" model="ir.sequence">
+           <field name="name">Tuba Sale Order</field>
+           <field name="code">tuba.sale.order</field>
+           <field name="prefix">S</field>
+           <field name="padding">5</field>
+           <field name="company_id" eval="False"/>
+       </record>
+        <record id="seq_tuba_purchase_order" model="ir.sequence">
+           <field name="name">Tuba Purchase Order</field>
+           <field name="code">tuba.purchase.order</field>
+           <field name="prefix">PR</field>
+           <field name="padding">5</field>
+           <field name="company_id" eval="False"/>
+       </record>
+        <record id="seq_tuba_customer_receiving" model="ir.sequence">
+           <field name="name">Tuba Customer Receiving</field>
+           <field name="code">customer.receiving</field>
+           <field name="prefix">R</field>
+           <field name="padding">5</field>
+           <field name="company_id" eval="False"/>
+       </record>
+        <record id="seq_tuba_supplier_payment" model="ir.sequence">
+           <field name="name">Tuba Supplier Payment</field>
+           <field name="code">supplier.payment</field>
+           <field name="prefix">SP</field>
+           <field name="padding">5</field>
+           <field name="company_id" eval="False"/>
+       </record>
+    </data>
+</odoo>

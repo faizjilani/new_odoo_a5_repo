@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="inherit_view_res_partner_form" model="ir.ui.view">
+            <field name="name">inherit.view.res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button" type="object" name="get_sales"
+                        icon="fa-dollar">
+                    <field string="Sales" name="customer_sale_count" widget="statinfo"/>
+                </button>
+                    <button class="oe_stat_button" type="object" name="get_purchases"
+                        icon="fa-credit-card">
+                    <field string="Purchases" name="customer_purchase_count" widget="statinfo"/>
+                </button>
+                </xpath>
+                <xpath expr="/form/sheet/group/group/field[@name='vat']" position="after">
+                    <field name="customer_type"/>
+                    <field name="last_receiving"/>
+                    <field name="emirates_id"/>
+                    <field name="opening_balance"/>
+                    <field name="supplier_opening_balance"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

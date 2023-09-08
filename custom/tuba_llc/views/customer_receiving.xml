@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_customer_receiving_tree" model="ir.ui.view">
+        <field name="name">customer.receiving.tree</field>
+        <field name="model">customer.receiving</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="reference_no"/>
+                <field name="customer_id"/>
+                <field name="new_receiving_date"/>
+                <field name="receiving_type"/>
+                <field name="receiving_payment"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_customer_receiving_form" model="ir.ui.view">
+        <field name="name">customer.receiving.form</field>
+        <field name="model">customer.receiving</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="reference_no"/>
+                            <field name="customer_id"/>
+                            <field name="currency_id"/>
+                        </group>
+                        <group>
+                            <field name="new_receiving_date"/>
+                            <field name="receiving_type" widget="radio"/>
+                            <field name="receiving_payment" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="receipt_description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_customer_receiving" model="ir.actions.act_window">
+        <field name="name">Customer Receipt</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">customer.receiving</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Customer Receiving!
+            </p>
+        </field>
+    </record>
+
+</odoo>

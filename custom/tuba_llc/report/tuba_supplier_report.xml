@@ -1,0 +1,161 @@
+<odoo>
+    <data>
+        <template id="tuba_supplier_report_action">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <link rel="stylesheet"
+                              href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+                              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+                              crossorigin="anonymous"/>
+                        <!--                        <div class="oe_structure"/>-->
+                        <div class="text-center " style="padding-top:10px;">
+                            <span>
+                                <h2>Supplier Report</h2>
+                            </span>
+                        </div>
+<!--                        <div class="pull-left">-->
+<!--                            <p>-->
+<!--                                <span><strong>Name:</strong></span>-->
+<!--                                <t t-esc="cust_name"/>-->
+<!--                            </p>-->
+<!--                        </div>-->
+                        <div class="pull-right">
+                            <p>
+                                <span>
+                                    <strong>Date From:</strong>
+                                </span>
+                                <t t-esc="start_date"/>
+                            </p>
+                            <p>
+                                <span>
+                                    <strong>Date To:</strong>
+                                </span>
+                                <t t-esc="end_date"/>
+                            </p>
+                        </div>
+                        <table class="table table-sm table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Emirates ID</th>
+                                    <th>Mobile no</th>
+                                    <th>Opening Balance</th>
+                                    <th>Debit</th>
+                                    <th>Credit</th>
+                                    <th>Closing Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="customers" t-as="cust">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="cust['name']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="cust['emirates_id']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="cust['mobile']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="cust['opening_balance']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="cust['current_credit']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="cust['current_debit']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="cust['closing_balance']"/>
+                                        </td>
+
+<!--                                        <td>-->
+<!--                                            <t t-esc="o['branch_name']"/>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            &lt;!&ndash;                                                <t t-foreach="o['trans_type']" t-as="type">&ndash;&gt;-->
+<!--                                            <t t-if="o['trans_type'] =='Receivable'">Receivable Entry</t>-->
+<!--                                            <t t-else="">-->
+<!--                                                <t t-esc="o['trans_type']"/>-->
+<!--                                            </t>-->
+<!--                                            &lt;!&ndash;                                                </t>&ndash;&gt;-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <t t-if="o['total_amount'] != 0">-->
+<!--                                                <t t-esc="o['total_amount']"/>-->
+<!--                                            </t>-->
+<!--                                            <t t-else="o['total_amount'] == 0">-->
+<!--                                                <span/>-->
+<!--                                            </t>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <t t-if="o['credit_amount'] != 0">-->
+<!--                                                <t t-esc="o['credit_amount']"/>-->
+<!--                                            </t>-->
+<!--                                            <t t-else="o['credit_amount'] == 0"></t>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <t t-if="o['cash_amount'] != 0">-->
+<!--                                                <t t-esc="o['cash_amount']"/>-->
+<!--                                            </t>-->
+<!--                                            <t t-else="o['cash_amount'] == 0"></t>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <t t-if="o['balance'] != 0">-->
+<!--                                                <t t-if="o['trans_type'] =='Receivable'">- -->
+<!--                                                    <t t-esc="o['balance']"/>-->
+<!--                                                </t>-->
+<!--                                                <t t-else="">-->
+<!--                                                    <t t-esc="o['balance']"/>-->
+<!--                                                </t>-->
+<!--                                            </t>-->
+<!--                                            <t t-else="o['balance'] == 0"></t>-->
+<!--                                        </td>-->
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <td><span><strong>Total</strong></span></td>
+                                    <td/>
+                                    <td/>
+                                    <td>
+                                        <strong><t t-esc="open_total"/></strong>
+                                    </td>
+                                    <td>
+                                        <strong><t t-esc="credit_total"/></strong>
+                                    </td>
+                                    <td>
+                                        <strong><t t-esc="debit_total"/></strong>
+                                    </td>
+                                    <td>
+                                        <strong><t t-esc="close_total"/></strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+<!--                        <div class="pull-right">-->
+<!--                            <p>-->
+<!--                                <span>-->
+<!--                                    <strong>Total Receivable:</strong>-->
+<!--                                </span>-->
+<!--                                <t t-esc="receivable"/> <t t-esc="currency"/>-->
+<!--                            </p>-->
+<!--                        </div>-->
+
+                    </div>
+                </t>
+            </t>
+        </template>
+        <report
+                id="report_tuba_supplier"
+                model="tuba.supplier.report"
+                string="Supplier Report"
+                report_type="qweb-pdf"
+                name="tuba_llc.tuba_supplier_report_action"
+                file="tuba_llc.tuba_supplier_report_action"
+                attachment_use="True"
+                menu="False"
+        />
+    </data>
+</odoo>

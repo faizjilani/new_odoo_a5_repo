@@ -1,0 +1,86 @@
+<odoo>
+    <menuitem id="menu_main_tuba_root"
+              name="Tuba"
+              sequence="10"/>
+
+    <menuitem id="menu_customer_root"
+              name="Customer"
+              parent="menu_main_tuba_root"
+              sequence="10"/>
+
+    <menuitem id="menu_tuba_sale_order"
+              name="Sale"
+              parent="tuba_llc.menu_customer_root"
+              action="tuba_llc.action_tuba_sale_order"
+              sequence="10"/>
+
+    <menuitem id="menu_tuba_sale_damage"
+              name="Damage"
+              parent="tuba_llc.menu_customer_root"
+              action="tuba_llc.action_tuba_sale_damage"
+              sequence="20"/>
+
+    <menuitem id="menu_tuba_customer_receiving"
+              name="Receipt"
+              parent="tuba_llc.menu_customer_root"
+              action="tuba_llc.action_customer_receiving"
+              sequence="30"/>
+
+    <menuitem id="customer_report_menu"
+            name="Report"
+            action="tuba_llc.action_tuba_customer_report_wizard"
+            parent="menu_customer_root"
+            sequence="40"/>
+
+    <menuitem id="customer_partner_menu"
+        name="Customers"
+        action="contacts.action_contacts"
+        parent="menu_customer_root"
+        sequence="50"/>
+
+    <menuitem id="menu_supplier_root"
+              name="Supplier"
+              parent="menu_main_tuba_root"
+              sequence="20"/>
+
+    <menuitem id="menu_tuba_purchase_order"
+              name="Purchase"
+              parent="tuba_llc.menu_supplier_root"
+              action="tuba_llc.action_tuba_purchase_order"
+              sequence="10"/>
+
+    <menuitem id="menu_tuba_supplier_payment"
+              name="Payment"
+              parent="tuba_llc.menu_supplier_root"
+              action="tuba_llc.action_supplier_payment"
+              sequence="20"/>
+
+    <menuitem id="supplier_report_menu"
+            name="Report"
+            action="tuba_llc.action_tuba_supplier_report_wizard"
+            parent="menu_supplier_root"
+            sequence="30"/>
+
+    <menuitem id="supplier_partner_menu"
+        name="Suppliers"
+        action="contacts.action_contacts"
+        parent="menu_supplier_root"
+        sequence="40"/>
+
+    <menuitem id="menu_inventory_root"
+              name="Stock"
+              parent="menu_main_tuba_root"
+              sequence="30"/>
+
+    <menuitem id="menu_tuba_products"
+          name="Products"
+          parent="menu_inventory_root"
+          action="action_tuba_products"
+          sequence="10"/>
+
+    <menuitem id="inventory_report_menu"
+            name="Report"
+            action="tuba_llc.action_tuba_inventory_report_wizard"
+            parent="menu_inventory_root"
+            sequence="20"/>
+</odoo>

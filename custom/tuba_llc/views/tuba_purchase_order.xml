@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tuba_purchase_order_tree" model="ir.ui.view">
+        <field name="name">tuba.purchase.order.tree</field>
+        <field name="model">tuba.purchase.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="reference_no"/>
+                <field name="customer_id"/>
+                <field name="new_order_date"/>
+                <field name="total_amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_tuba_purchase_order_form" model="ir.ui.view">
+        <field name="name">tuba.purchase.order.form</field>
+        <field name="model">tuba.purchase.order</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="reference_no"/>
+                            <field name="customer_id"/>
+                        </group>
+                        <group>
+                            <field name="new_order_date"/>
+                            <field name="currency_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Purchase Order Lines" name="tuba_purchase_order_lines">
+                            <field name="tuba_purchase_lines">
+                                <tree string="Purchase Lines" editable="bottom">
+                                        <field name="product_id"/>
+                                        <field name="prod_qty"/>
+                                        <field name="unit"/>
+                                        <field name="prod_purchase_price"/>
+                                        <field name="tax"/>
+                                        <field name="sub_total"/>
+                                        <field name="tuba_purchase_order_line" invisible="1"/>
+                                    </tree>
+                            </field>
+                            <div class="pull-right">
+                                <label for="total_amount">Total Amount</label>
+                                <field name="total_amount"  widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tuba_purchase_order" model="ir.actions.act_window">
+        <field name="name">Purchase Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tuba.purchase.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Purchase Order!
+            </p>
+        </field>
+    </record>
+
+</odoo>

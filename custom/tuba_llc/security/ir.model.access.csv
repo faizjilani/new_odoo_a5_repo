@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tuba_products,access_tuba_products,model_tuba_products,,1,1,1,1
+access_tuba_sale_order,access_tuba_sale_order,model_tuba_sale_order,,1,1,1,1
+access_tuba_sale_order_lines,access_tuba_sale_order_lines,model_tuba_sale_order_lines,,1,1,1,1
+access_tuba_purchase_order,access_tuba_purchase_order,model_tuba_purchase_order,,1,1,1,1
+access_tuba_purchase_order_lines,access_tuba_purchase_order_lines,model_tuba_purchase_order_lines,,1,1,1,1
+access_customer_receiving,access_customer_receiving,model_customer_receiving,,1,1,1,1
+access_supplier_payment,access_supplier_payment,model_supplier_payment,,1,1,1,1
+access_tuba_customer_report_wizard,access_tuba_customer_report_wizard,model_tuba_customer_report_wizard,,1,1,1,1
+access_tuba_supplier_report_wizard,access_tuba_supplier_report_wizard,model_tuba_supplier_report_wizard,,1,1,1,1
+access_tuba_inventory_report_wizard,access_tuba_inventory_report_wizard,model_tuba_inventory_report_wizard,,1,1,1,1
+access_tuba_sale_damage,access_tuba_sale_damage,model_tuba_sale_damage,,1,1,1,1
+access_tuba_sale_damage_lines,access_tuba_sale_damage_lines,model_tuba_sale_damage_lines,,1,1,1,1
